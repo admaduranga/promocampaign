@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mumzworld_PromoCampaign>
+            <version>0.1.0</version>
+        </Mumzworld_PromoCampaign>
+    </modules>
+    <global>
+        <models>
+            <promocampaign>
+                <class>Mumzworld_PromoCampaign</class>
+                <resourceModel>promocampaign_resource</resourceModel>
+            </promocampaign>
+            <promocampaign_resource>
+                <class>Mumzworld_PromoCampaign_Model_Resource</class>
+                <entities>
+                    <promotion>
+                        <table>mumzworld_promocampaign_promotion</table>
+                    </promotion>
+                    <coupon>
+                        <table>mumzworld_promocampaign_coupon</table>
+                    </coupon>
+                </entities>
+            </promocampaign_resource>
+        </models>
+        <helpers>
+            <promocampaign>
+                <class>Mumzworld_PromoCampaign_Helper</class>
+            </promocampaign>
+        </helpers>
+        <blocks>
+            <promocampaign>
+                <class>Mumzworld_PromoCampaign_Block</class>
+            </promocampaign>
+        </blocks>
+        <resources>
+            <promocampaign_setup>
+                <setup>
+                    <module>Mumzworld_PromoCampaign</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </promocampaign_setup>
+            <promocampaign_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </promocampaign_write>
+            <promocampaign_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </promocampaign_read>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Mumzworld_PromoCampaign before="Mage_Adminhtml">Mumzworld_PromoCampaign_Adminhtml</Mumzworld_PromoCampaign>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+        <!--<routers>-->
+            <!--<promocampaign>-->
+                <!--<use>admin</use>-->
+                <!--<args>-->
+                    <!--<module>Mumzworld_PromoCampaign</module>-->
+                    <!--<frontName>admin_promocampaign</frontName>-->
+                <!--</args>-->
+            <!--</promocampaign>-->
+        <!--</routers>-->
+    </admin>
+    <adminhtml>
+        <menu>
+            <promocampaign module="promocampaign">
+                <title>PromoCampaign</title>
+                <sort_order>100</sort_order>
+                <children>
+                    <promotion module="promocampaign">
+                        <title>Mumzworld Order Promotions</title>
+                        <sort_order>0</sort_order>
+                        <action>adminhtml/promotion/index</action>
+                    </promotion>
+                    <!--<list module="jr_createadmincontroller" translate="title">-->
+                        <!--<title>List Action</title>-->
+                        <!--<sort_order>2</sort_order>-->
+                        <!--<action>adminhtml/custom/list</action>-->
+                    <!--</list>-->
+                </children>
+            </promocampaign>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <promocampaign translate="title" module="promocampaign">
+                            <title>PromoCampaign</title>
+                            <sort_order>1000</sort_order>
+                            <children>
+                                <promocampaignbackend translate="title">
+                                    <title>Mumzworld Order Promotions</title>
+                                </promocampaignbackend>
+                            </children>
+                        </promocampaign>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <promocampaign>
+                    <file>promocampaign.xml</file>
+                </promocampaign>
+            </updates>
+        </layout>
+    </adminhtml>
+</config> 

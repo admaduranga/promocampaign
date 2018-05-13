@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_promotion_index>
+        <reference name="content">
+            <block type="promocampaign/adminhtml_promotion" name="promocampaign_promotion"
+                   template="promocampaign/promotion.phtml"/>
+        </reference>
+    </adminhtml_promotion_index>
+</layout>
