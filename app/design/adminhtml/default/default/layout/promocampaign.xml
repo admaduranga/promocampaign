@@ -2,8 +2,15 @@
 <layout version="0.1.0">
     <adminhtml_promotion_index>
         <reference name="content">
-            <block type="promocampaign/adminhtml_promotion" name="promocampaign_promotion"
-                   template="promocampaign/promotion.phtml"/>
+            <block type="promocampaign/adminhtml_promotion" name="promocampaign_promotion"/>
         </reference>
     </adminhtml_promotion_index>
+    <adminhtml_promotion_edit>
+        <reference name="content">
+            <block type="promocampaign/adminhtml_promotion_edit" name="promocampaign.promotion.edit"/>
+        </reference>
+        <reference name="left">
+            <block type="promocampaign/adminhtml_promotion_edit_tabs" name="promocampaign.promotion.edit.tabs"/>
+        </reference>
+    </adminhtml_promotion_edit>
 </layout>

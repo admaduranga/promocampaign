@@ -8,7 +8,7 @@
     <global>
         <models>
             <promocampaign>
-                <class>Mumzworld_PromoCampaign</class>
+                <class>Mumzworld_PromoCampaign_Model</class>
                 <resourceModel>promocampaign_resource</resourceModel>
             </promocampaign>
             <promocampaign_resource>
