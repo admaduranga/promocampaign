@@ -1,8 +1,7 @@
-#--------------------------#
-# Magento Default Files    #
-#--------------------------#
-
 /app/etc/local.xml
+/.idea
+
+/js
 
 /media/*
 !/media/.htaccess

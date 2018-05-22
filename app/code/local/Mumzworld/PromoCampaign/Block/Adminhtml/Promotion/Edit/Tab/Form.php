@@ -33,10 +33,11 @@ class Mumzworld_PromoCampaign_Block_Adminhtml_Promotion_Edit_Tab_Form extends Ma
             'note' => $this->__('Campaign Name')
         ));
 
-        $fieldset->addField("salesrule_id", 'text', array(
+        $fieldset->addField("salesrule_id", 'select', array(
             'label' => $this->__('Salesrule Id'),
             'class' => 'required-entry',
             'required' => true,
+            'values' =>  Mage::getModel('promocampaign/system_config_source_salesRule')->toOptionArray(),
             'name' => "main[salesrule_id]",
             'note' => $this->__('Salesrule Id')
         ));
