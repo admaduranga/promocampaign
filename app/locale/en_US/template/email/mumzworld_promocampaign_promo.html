@@ -1,0 +1,246 @@
+<!--@subject 50 AED OFF Your Next Pampers Purchase @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"skin url=\"images/logo_email.gif\" _area='frontend'":"Email Logo Image"}
+@-->
+<!--@styles
+
+    /* CLIENT-SPECIFIC STYLES */
+    #outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
+    .ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing */
+    body, table, td, a{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;} /* Prevent WebKit and Windows mobile changing default text sizes */
+    table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook 2007 and up */
+    img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
+
+    /* RESET STYLES */
+    body{margin:0; padding:0;}
+    img{border:0; height:auto; line-height:100%; outline:none; text-decoration:none;}
+    table{border-collapse:collapse !important;}
+    body{height:100% !important; margin:0; padding:0; width:100% !important;}
+
+@-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body style="margin: 0; padding: 0;">
+<!-- Pre Header -->
+<span style="display: none !important; color: #ffffff;">Hi {{htmlescape var=$order.getBillingAddress().getName()}}, Thank you for ordering from Mumzworld.com.</span>
+<!-- Header Section -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td bgcolor="#ffffff">
+            <table border="0" cellpadding="0" cellspacing="0" width="600" align="center">
+                <tr>
+                    <td bgcolor="#003c69" width="100%" style="padding: 0 !important; width: 100% !important; min-width: 600px;">
+                        <img src="{{skin url="images/mailers/topbar.png"}}" width="600" height="30" border="0" alt="Best Price - Fast Delivery - Easy Returns - Flexible Payment Terms" style="display: block; padding: 0; color: #004B87; text-decoration: none; font-family: Helvetica, arial, sans-serif; font-size: 16px; width: 600px; height: 30px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 20px; width: 560px;" width="560" class="logo">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td bgcolor="#ffffff" width="224" align="left"><a href="{{store url=""}}" target="_blank"><img alt="Mumzworld.com" src="{{skin url="images/mailers/logo.png"}}" width="224" height="53" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #004B87; font-size: 16px; padding: 0 10px 0 0;" border="0"></a></td>
+                                <td bgcolor="#ffffff" align="right" style="vertical-align: bottom;">
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td bgcolor="#ffffff" width="71" align="right">
+                                                <a href="https://itunes.apple.com/ae/app/mumzworld/id1094194042?mt=8&ign-mpt=uo%3D4" target="_blank">
+                                                    <img src="{{skin url="images/mailers/app.png"}}" width="71" height="24" boreder="0" alt="Download Our App"  style="display: block; padding: 0 0 3px 0; font-family: Helvetica, Arial, sans-serif; color: #004B87; font-size: 16px; width: 71px; height: 24px;" border="0">
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#ffffff" align="right"><a href="https://itunes.apple.com/ae/app/mumzworld/id1094194042?mt=8&ign-mpt=uo%3D4" target="_blank" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #004B87; font-size: 10px; font-weight: bold; text-decoration: none; text-transform: uppercase;">Download Our App</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#e2e2e2" height="2" style="padding: 0 !important; height: 2px; line-height: 2px;">&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!-- Content Section -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td bgcolor="#ffffff" align="center" style="padding: 0;">
+            <table border="0" cellpadding="0" cellspacing="0" width="600">
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <!-- Content Text -->
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td style="padding-top: 25px;"> <img src="{{skin url="images/mailers/Pampers-PPB2.jpg"}}" width="600" height="197" border="0" alt="Pampers Promo" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" style="font-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #555555; padding: 30px 0 0 20px;">
+                                                Hi {{var customerName}},
+                                                <br /><br />
+                                                You recently spent AED 200 on Pampers on mumzworld.com, as promised, we are rewarding you with a AED 50 voucher to spend on your next Pampers purchase on Mumzworld!
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" style="font-size: 14px; font-family: Helvetica, Arial, sans-serif; color: #555555; padding: 30px 0 0 20px;">
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td style="font-size: 12px; padding: 5px 0; font-family: Helvetica, Arial, sans-serif; color:#555555;">
+                                                            <div style="text-align:center;font-weight:bold;font-size: 14px; font-family: Helvetica, Arial, sans-serif;"><span style="display:block; margin-bottom: 10px;">Enter this code at checkout</span>
+                                                                <span style="border:1px dashed #C30045; padding:5px 54px;font-family: Helvetica, Arial, sans-serif; color: #004B87; font-size: 25px; font-weight: bold; text-decoration: none; text-transform: uppercase;">PAMPERS50BACK</span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center" valign="middle" style="padding-top:20px;font-size: 10px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color: #555555; text-transform: none;">
+                                                            <div style="font-weight: bold"> *Terms & conditions</div>You can redeem the voucher until 30th November 2017. Used once per customer.
+                                                            <br/>
+                                                            Only availble to UAE. Only applicable to Pampers items.
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!-- Footer Section -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td bgcolor="#ffffff" align="center" style="padding: 20px 0 0 0;">
+            <!-- Contact Section -->
+            <table width="600" border="0" cellspacing="0" cellpadding="0" style="max-width: 600px; width: 600px;">
+                <tr>
+                    <td bgcolor="#e2e2e2" style="padding: 20px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td valign="top" width="50%" style="padding: 0; width: 50%;">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" align="left">
+                                        <tr>
+                                            <td bgcolor="#e2e2e2" width="41" height="42" align="left" style="padding: 0 0 20px 0;">
+                                                <img src="{{skin url="images/mailers/email.png"}}" width="41" height="42" boreder="0" style="display: block; padding: 0; width: 41px; min-width: 41px; height: 42px;" border="0">
+                                            </td>
+                                            <td bgcolor="#e2e2e2" style="display: block; padding: 3px 0 20px 15px; font-family: Helvetica, Arial, sans-serif; color: #004B87; font-size: 14px; font-weight: bold; text-decoration: none; text-transform: uppercase;">
+                                                Email Us
+                                                <a href="mailto:support@mumzworld.com" target="_blank" style="display: block; padding: 5px 0 0 0; font-family: Helvetica, Arial, sans-serif; color: #282828; text-decoration: none; font-size: 12px; font-weight: normal; text-transform: none;"> support@mumzworld.com</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#e2e2e2" width="41" height="42" align="left" style="padding: 0 0 20px 0;">
+                                                <img src="{{skin url="images/mailers/contact.png"}}" width="41" height="42" boreder="0" style="display: block; padding: 0; width: 41px; min-width: 41px; height: 42px;" border="0">
+                                            </td>
+                                            <td bgcolor="#e2e2e2" style="display: block; padding: 3px 0 20px 15px; font-family: Helvetica, Arial, sans-serif; color: #004B87; font-size: 14px; font-weight: bold; text-decoration: none; text-transform: uppercase;">
+                                                Call Us
+                                                <a href="#" target="_blank" style="display: block; padding: 5px 0 0 0; font-family: Helvetica, Arial, sans-serif; color: #282828; text-decoration: none; font-size: 12px; font-weight: normal;"> +971(4)-433-9455</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#e2e2e2" width="41" height="42" align="left" style="padding: 0 0 20px 0;">
+                                                <img src="{{skin url="images/mailers/whatsapp.png"}}" width="41" height="42" boreder="0" style="display: block; padding: 0; width: 41px; min-width: 41px; height: 42px;" border="0">
+                                            </td>
+                                            <td bgcolor="#e2e2e2" style="display: block; padding: 3px 0 20px 15px; font-family: Helvetica, Arial, sans-serif; color: #004B87; font-size: 14px; font-weight: bold; text-decoration: none; text-transform: uppercase;">
+                                                WHATSAPP Us
+                                                <a href="#" target="_blank" style="display: block; padding: 5px 0 0 0; font-family: Helvetica, Arial, sans-serif; color: #282828; text-decoration: none; font-size: 12px; font-weight: normal;"> +971-55126-0033</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="50%" style="padding: 0; width: 50%;">
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" align="right">
+                                        <tr>
+                                            <td bgcolor="#e2e2e2" style="display: block; padding: 5px 0 0 30px; font-family: Helvetica, Arial, sans-serif; color: #555555; font-size: 14px; font-weight: bold; text-decoration: none; text-transform: uppercase;">
+                                                Customer Service Office Hours:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#e2e2e2" style="display: block; padding: 10px 0 0 30px; font-family: Helvetica, Arial, sans-serif; color: #555555; font-size: 12px; font-weight: normal; text-decoration: none; text-transform: none;">
+                                                <a href="#" target="_blank" style="color: #555555; text-decoration: none;">Sunday - Thursday</a>
+                                                <br/>
+                                                <a href="#" target="_blank" style="color: #555555; text-decoration: none;">9 AM to 7 PM (UAE Time)</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#e2e2e2" style="display: block; padding: 10px 0 0 30px; font-family: Helvetica, Arial, sans-serif; color: #555555; font-size: 12px; font-weight: normal; text-decoration: none; text-transform: none;">
+                                                <a href="#" target="_blank" style="color: #555555; text-decoration: none;">Friday & Saturday</a>
+                                                <br/>
+                                                We will ensure to respond within 24 hours.
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- Footer Social icons -->
+                <tr>
+                    <td bgcolor="#ffffff" style="padding: 0;" align="center">
+                        <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" style="width: 600px;">
+                            <tr>
+                                <td bgcolor="#ffffff" align="center" style="padding: 20px 0 0 0;">
+                                    <a href="https://www.facebook.com/mumzworld/" target="_blank" alt="Facebook" style="display: inline-block; padding: 0 20px 0 0; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #004B87; text-decoration: none;">
+                                        <img src="{{skin url="images/mailers/facebook.png"}}" width="40" height="41" boreder="0" style="display: inline-block; padding: 0; width: 40px; height: 41px;" border="0">
+                                    </a>
+                                    <a href="https://www.instagram.com/mumzworld/" target="_blank" alt="Instagram" style="display: inline-block; padding: 0 20px 0 0; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #004B87; text-decoration: none;">
+                                        <img src="{{skin url="images/mailers/instagram.png"}}" width="40" height="41" boreder="0" style="display: inline-block; padding: 0; width: 40px; height: 41px;" border="0">
+                                    </a>
+                                    <a href="https://twitter.com/mumzworld" target="_blank" alt="Twitter" style="display: inline-block; padding: 0; font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #004B87; text-decoration: none;">
+                                        <img src="{{skin url="images/mailers/twitter.png"}}" width="40" height="41" boreder="0" style="display: inline-block; padding: 0; width: 40px; height: 41px;" border="0">
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- Footer Copy/Unsubscribe -->
+                <tr>
+                    <td bgcolor="#ffffff" style="padding: 20px;">
+                        <table width="560" style="width: 560px;" border="0" cellspacing="0" cellpadding="0" align="center">
+                            <tr>
+                                <td align="center" valign="middle" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color: #555555; text-transform: none;">
+                                    Terms and conditions govern the use; Visit our <a href="{{store url="privacy-policy"}}" target="_blank" style="font-family: Helvetica, Arial, sans-serif; color: #282828; text-decoration: none;">Privacy Policy</a> for details. if you would no longer like to receive communications from <a href="{{store url=""}}" target="_blank" style="color: #282828; text-decoration: none;"> mumzworld.com</a>, you may unsubscribe.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="middle" style="padding: 20px 0 0 0; font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#555555; text-transform: none;">
+                                    To ensure you receive these emails add <a href="mailto:customercare@mumzworld.com" target="_blank" style="color: #282828; text-decoration: none;"> customercare@mumzworld.com</a> to your allowed contacts.
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- Footer bottom bar -->
+                <tr>
+                    <td bgcolor="#ffffff" style="padding: 0;">
+                        <table width="600" border="0" cellspacing="0" cellpadding="0" style="width: 600px;">
+                            <tr>
+                                <td bgcolor="#004B87" width="100%" height="20" style="padding: 0 !important; height: 20px; line-height: 20px; width: 100%;">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

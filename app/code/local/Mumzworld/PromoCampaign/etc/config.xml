@@ -53,6 +53,15 @@
                 </connection>
             </promocampaign_read>
         </resources>
+        <template>
+            <email>
+                <promocampaign_promo_email translate='label' module='promocampaign'>
+                    <label>Promo Email</label>
+                    <file>mumzworld_promocampaign_promo.html</file>
+                    <type>html</type>
+                </promocampaign_promo_email>
+            </email>
+        </template>
     </global>
     <admin>
         <routers>
