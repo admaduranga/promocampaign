@@ -1,4 +1,11 @@
 <?php
+/**
+ * Mumzworld.com
+ * @category    Mumzworld
+ * @package     Mumzworld_PromoCampaign
+ * @author      A. Dilhan Maduranga <dilhan.maduranga@mumzworld.com>
+ */
+
 class Mumzworld_PromoCampaign_Model_Resource_Promotion_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract
 {
     /**
@@ -8,10 +15,11 @@ class Mumzworld_PromoCampaign_Model_Resource_Promotion_Collection extends Mage_C
     protected function _construct()
     {
         $this->_init('promocampaign/promotion');
-        //$this->_map['fields']['store'] = 'store_table.store_id';
     }
 
-
+    /**
+     * @return bool|Mage_Eav_Model_Entity_Collection_Abstract
+     */
     public function getActivePromotions()
     {
         $current = Mage::getModel('core/date')->gmtDate('Y-m-d H:i:s');

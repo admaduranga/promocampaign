@@ -1,13 +1,26 @@
 <?php
 /**
+ * Mumzworld.com
+ * @category    Mumzworld
+ * @package     Mumzworld_PromoCampaign
+ * @author      A. Dilhan Maduranga <dilhan.maduranga@mumzworld.com>
  */
+
 class Mumzworld_PromoCampaign_Model_Coupon extends Mage_Core_Model_Abstract
 {
-
+    /**
+     * @var Mumzworld_PromoCampaign_Model_Promotion $_promotion
+     */
     protected $_promotion;
 
+    /**
+     * @var Mage_Sales_Model_Order $_order;
+     */
     protected $_order;
 
+    /**
+     * @var Mage_SalesRule_Model_Coupon $_salesruleCoupon
+     */
     protected $_salesruleCoupon;
 
     /**
@@ -19,52 +32,76 @@ class Mumzworld_PromoCampaign_Model_Coupon extends Mage_Core_Model_Abstract
         $this->_init('promocampaign/coupon');
     }
 
+    /**
+     * @param $promotion
+     */
     public function setPromotion($promotion)
     {
         $this->_promotion = $promotion;
     }
 
+    /**
+     * @return Mumzworld_PromoCampaign_Model_Promotion
+     */
     public function getPromotion()
     {
         return $this->_promotion;
     }
 
+    /**
+     * @param $order
+     */
     public function setOrder($order)
     {
         $this->_order = $order;
     }
+
+    /**
+     * @return Mage_Sales_Model_Order
+     */
     public function getOrder()
     {
         return $this->_order;
     }
 
+    /**
+     * @return Mage_SalesRule_Model_Coupon
+     */
     public function getSalesruleCoupon()
     {
         return $this->_salesruleCoupon;
     }
 
-
+    /**
+     * @param $promotion
+     * @param $order
+     * @return $this
+     */
     public function generate($promotion, $order)
     {
         $this->setOrder($order);
         $this->setPromotion($promotion);
 
-        if (!$this->getId()) {
-            $this->setCampaignId($promotion->getId())
-                ->setOrderId($order->getId())
-                ->setCustomerId($order->getCustomerId())
-                ->setCouponId($this->getPromoCouponId())
-                ->save();
-            return $this;
-        }
+        $this->setCampaignId($promotion->getId())
+            ->setOrderId($order->getId())
+            ->setCustomerId($order->getCustomerId())
+            ->setCouponId($this->getPromoCouponId())
+            ->save();
+        return $this;
     }
 
-
+    /**
+     * @return mixed
+     */
     public function getPromoCouponId()
     {
         return $this->getPromoCode()->getId();
     }
 
+    /**
+     * @return false|Mage_Core_Model_Abstract
+     * @throws Mage_Core_Exception
+     */
     public function getPromoCode()
     {
         $salesruleId = $this->getPromotion()->getSalesruleId();

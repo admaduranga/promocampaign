@@ -68,37 +68,24 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <Mumzworld_PromoCampaign before="Mage_Adminhtml">Mumzworld_PromoCampaign_Adminhtml</Mumzworld_PromoCampaign>
+                        <Mumzworld_PromoCampaign before="Mage_Adminhtml">Mumzworld_PromoCampaign_Adminhtml
+                        </Mumzworld_PromoCampaign>
                     </modules>
                 </args>
             </adminhtml>
         </routers>
-        <!--<routers>-->
-            <!--<promocampaign>-->
-                <!--<use>admin</use>-->
-                <!--<args>-->
-                    <!--<module>Mumzworld_PromoCampaign</module>-->
-                    <!--<frontName>admin_promocampaign</frontName>-->
-                <!--</args>-->
-            <!--</promocampaign>-->
-        <!--</routers>-->
     </admin>
     <adminhtml>
         <menu>
             <promocampaign module="promocampaign">
-                <title>PromoCampaign</title>
+                <title>Mumzworld</title>
                 <sort_order>100</sort_order>
                 <children>
                     <promotion module="promocampaign">
-                        <title>Mumzworld Order Promotions</title>
+                        <title>Promo Campaigns</title>
                         <sort_order>0</sort_order>
                         <action>adminhtml/promotion/index</action>
                     </promotion>
-                    <!--<list module="jr_createadmincontroller" translate="title">-->
-                        <!--<title>List Action</title>-->
-                        <!--<sort_order>2</sort_order>-->
-                        <!--<action>adminhtml/custom/list</action>-->
-                    <!--</list>-->
                 </children>
             </promocampaign>
         </menu>
@@ -130,4 +117,12 @@
             </updates>
         </layout>
     </adminhtml>
+    <default>
+        <promo_campaign>
+            <emails>
+                <from>saraelsayedahmed@gmail.com</from>
+                <email_template>Promo Email</email_template>
+            </emails>
+        </promo_campaign>
+    </default>
 </config> 

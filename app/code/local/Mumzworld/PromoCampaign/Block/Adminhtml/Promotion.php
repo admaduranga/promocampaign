@@ -1,7 +1,16 @@
 <?php
+/**
+ * Mumzworld.com
+ * @category    Mumzworld
+ * @package     Mumzworld_PromoCampaign
+ * @author      A. Dilhan Maduranga <dilhan.maduranga@mumzworld.com>
+ */
 
 class Mumzworld_PromoCampaign_Block_Adminhtml_Promotion extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
+    /**
+     * Mumzworld_PromoCampaign_Block_Adminhtml_Promotion constructor.
+     */
     public function __construct()
     {
         $this->_blockGroup = 'promocampaign';

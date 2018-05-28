@@ -1,4 +1,11 @@
-<?php
+<?
+/**
+ * Mumzworld.com
+ * @category    Mumzworld
+ * @package     Mumzworld_PromoCampaign
+ * @author      A. Dilhan Maduranga <dilhan.maduranga@mumzworld.com>
+ */
+
 class Mumzworld_PromoCampaign_Model_System_Config_Source_SalesRule
 {
     /**
