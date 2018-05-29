@@ -97,7 +97,7 @@ class Mumzworld_PromoCampaign_Model_Promotion extends Mage_Core_Model_Abstract
      */
     public function getEligibleOrderCollection()
     {
-
+        // ** @todo parameterize this section, dymanic conditions
         /** @var Mage_Sales_Model_Entity_Order_Item_Collection $ordersCollection */
         $ordersCollection = Mage::getResourceModel('sales/order_item_collection');
         $ordersCollection->getSelect()->joinLeft(array('soh' => 'sales_flat_order_status_history'), "soh.parent_id = main_table.order_id");

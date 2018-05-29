@@ -68,8 +68,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <Mumzworld_PromoCampaign before="Mage_Adminhtml">Mumzworld_PromoCampaign_Adminhtml
-                        </Mumzworld_PromoCampaign>
+                        <Mumzworld_PromoCampaign before="Mage_Adminhtml">Mumzworld_PromoCampaign_Adminhtml</Mumzworld_PromoCampaign>
                     </modules>
                 </args>
             </adminhtml>
@@ -100,9 +99,9 @@
                             <title>PromoCampaign</title>
                             <sort_order>1000</sort_order>
                             <children>
-                                <promocampaignbackend translate="title">
+                                <promotion translate="title">
                                     <title>Mumzworld Order Promotions</title>
-                                </promocampaignbackend>
+                                </promotion>
                             </children>
                         </promocampaign>
                     </children>
