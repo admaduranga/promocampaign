@@ -4,6 +4,9 @@ Module to enable promotion campaigns based on the past orders
 * Module: Mumzworld_PromoCampaign
 * Codepool: local
 
+## Branch
+Please use the develop branch for the code review.
+
 
 ## Admin Menu
 Admin grid for promo campaigns and edit forms for the campaigns
