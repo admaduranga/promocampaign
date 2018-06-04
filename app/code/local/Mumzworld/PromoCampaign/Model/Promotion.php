@@ -6,7 +6,7 @@
  * @author      A. Dilhan Maduranga <dilhan.maduranga@mumzworld.com>
  */
 
-class Mumzworld_PromoCampaign_Model_Promotion extends Mage_Core_Model_Abstract
+class Mumzworld_PromoCampaign_Model_Promotion extends Mage_Rule_Model_Abstract
 {
     /** CONSTANTS */
     const CONST_STATUS_ENABLED = 1;
@@ -147,5 +147,61 @@ class Mumzworld_PromoCampaign_Model_Promotion extends Mage_Core_Model_Abstract
             echo "Error while sending email to :" . $orderLine->getCustomerEmail() . PHP_EOL;
         }
         return false;
+    }
+
+    public function getConditionsInstance()
+    {
+        return Mage::getModel('promocampaign/rule_condition_combine');
+        // TODO: Implement getConditionsInstance() method.
+    }
+
+    public function getActionsInstance()
+    {
+        // TODO: Implement getActionsInstance() method.
+    }
+
+    /**
+     * @return $this|Mage_Rule_Model_Abstract
+     * @throws Mage_Core_Exception
+     */
+    protected function _beforeSave()
+    {
+        // Check if discount amount not negative
+        if ($this->hasDiscountAmount()) {
+            if ((int)$this->getDiscountAmount() < 0) {
+                Mage::throwException(Mage::helper('rule')->__('Invalid discount amount.'));
+            }
+        }
+
+        // Serialize conditions
+        if ($this->getConditions()) {
+            $this->setConditionsSerialized(serialize($this->getConditions()->asArray()));
+            $this->unsConditions();
+        }
+
+        /**
+         * Prepare website Ids if applicable and if they were set as string in comma separated format.
+         * Backwards compatibility.
+         */
+        if ($this->hasWebsiteIds()) {
+            $websiteIds = $this->getWebsiteIds();
+            if (is_string($websiteIds) && !empty($websiteIds)) {
+                $this->setWebsiteIds(explode(',', $websiteIds));
+            }
+        }
+
+        /**
+         * Prepare customer group Ids if applicable and if they were set as string in comma separated format.
+         * Backwards compatibility.
+         */
+        if ($this->hasCustomerGroupIds()) {
+            $groupIds = $this->getCustomerGroupIds();
+            if (is_string($groupIds) && !empty($groupIds)) {
+                $this->setCustomerGroupIds(explode(',', $groupIds));
+            }
+        }
+
+        Mage_Core_Model_Abstract::_beforeSave();
+        return $this;
     }
 }

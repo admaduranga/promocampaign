@@ -51,14 +51,6 @@ class Mumzworld_PromoCampaign_Block_Adminhtml_Promotion_Edit_Tab_Form extends Ma
             'name' => "main[salesrule_id]",
             'note' => $this->__('Salesrule Id')
         ));
-//
-//        $fieldset->addField("email_template", 'text', array(
-//            'label' => $this->__('Email Template'),
-//            'class' => 'disabled',
-//            'required' => true,
-//            'name' => "main[email_template]",
-//            'note' => $this->__('Email Template')
-//        ));
 
         $fieldset->addField("email_promo_header", 'text', array(
             'label' => $this->__('Email Promo Header'),
@@ -96,8 +88,8 @@ class Mumzworld_PromoCampaign_Block_Adminhtml_Promotion_Edit_Tab_Form extends Ma
             'class' => 'validate-date validate-date-range date-range-custom_theme-from'
         ));
 
-        if (Mage::registry('promocampaign_promotion')) {
-            $form->setValues(Mage::registry('promocampaign_promotion')->getData());
+        if (Mage::registry('current_promocampaign_promotion')) {
+            $form->setValues(Mage::registry('current_promocampaign_promotion')->getData());
         }
         return parent::_prepareForm();
     }

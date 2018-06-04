@@ -29,6 +29,15 @@ class Mumzworld_PromoCampaign_Adminhtml_PromotionController extends Mage_Adminht
         $this->renderLayout();
     }
 
+    protected function _initAction()
+    {
+        $this->loadLayout()
+            ->_setActiveMenu('promo/quote')
+            ->_addBreadcrumb(Mage::helper('promocampaign')->__('Promotions'), Mage::helper('promocampaign')->__('Promotions'))
+        ;
+        return $this;
+    }
+
     /**
      * new action
      */
@@ -44,26 +53,43 @@ class Mumzworld_PromoCampaign_Adminhtml_PromotionController extends Mage_Adminht
     public function editAction()
     {
         $id = $this->getRequest()->getParam('id');
-        $this->loadLayout();
         $model = Mage::getModel('promocampaign/promotion');
 
-        try {
-            if ($id) {
-                $model = $model->load($id);
-                if (!$model->getId()) {
-                    Mage::throwException(Mage::helper('promocampaign')->__('This promotion no longer exists.'));
-                }
+        if ($id) {
+            $model->load($id);
+            if (!$model->getId()) {
+                Mage::getSingleton('adminhtml/session')->addError(
+                    Mage::helper('salesrule')->__('This promotion no longer exists.'));
+                $this->_redirect('*/*');
+                return;
             }
-        } catch (Exception $e) {
-            Mage::getSingleton('adminhtml/session')->addError(
-                $e->getMessage()
-            );
-            $this->_redirect('*/*/');
-            return;
         }
 
-        $this->_title($model->getId() ? $model->getCampaignName() : $this->__('New Promotion'));
-        Mage::register('promocampaign_promotion', $model);
+        $this->_title($model->getId() ? $model->getCampaignName() : $this->__('New Promotion Rule'));
+
+        // set entered data if was error when we do save
+        $data = Mage::getSingleton('adminhtml/session')->getPageData(true);
+        if (!empty($data)) {
+            $model->addData($data);
+        }
+
+        $model->getConditions()->setJsFormObject('rule_conditions_fieldset');
+        //$model->getActions()->setJsFormObject('rule_actions_fieldset');
+
+        Mage::register('current_promocampaign_promotion', $model);
+
+//        $this->_initAction()->getLayout()->getBlock('promo_quote_edit')
+//            ->setData('action', $this->getUrl('*/*/save'));
+
+//        $this
+//            ->_addBreadcrumb(
+//                $id ? Mage::helper('promocampaign')->__('Edit Promotion Rule')
+//                    : Mage::helper('promocampaign')->__('New Promotion Rule'),
+//                $id ? Mage::helper('promocampaign')->__('Edit Promotion Rule')
+//                    : Mage::helper('promocampaign')->__('New Promotion Rule'))
+//            ->renderLayout();
+
+        $this->loadLayout();
         $this->renderLayout();
     }
 
@@ -74,19 +100,39 @@ class Mumzworld_PromoCampaign_Adminhtml_PromotionController extends Mage_Adminht
     {
         if ($this->getRequest()->isPost()) {
             try {
-                $postData = $this->getRequest()->getPost();
-                $mainData = $postData['main'];
+                $data = $this->getRequest()->getPost();
+                $mainData = $data['main'];
+
+                $model = Mage::getModel('promocampaign/promotion');
+                Mage::dispatchEvent(
+                    'adminhtml_controller_promocampaign_prepare_save',
+                    array('request' => $this->getRequest()));
+
+                $id = !empty($mainData['entity_id']) ? $mainData['entity_id'] : false;
+                if ($id) {
+                    $model->load($id);
+                    if ($id != $model->getId()) {
+                        Mage::throwException(Mage::helper('promocampaign')->__('Wrong Promo Campaign specified.'));
+                    }
+                }
+
 
                 if ($mainData && $this->validateFormData($mainData)) {
                     if (empty($mainData['entity_id'])) {
                         unset($mainData['entity_id']);
                     }
 
-                    $promoModel = Mage::getModel('promocampaign/promotion');
-                    $promoModel->addData($mainData);
-                    $promoModel->save();
+                    if (isset($data['rule']['conditions'])) {
+                        $data['conditions'] = $data['rule']['conditions'];
+                    }
+                    unset($data['rule']);
+                    $model->loadPost($data);
 
-                    Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Location data saved successfully saved'));
+                    ////$promoModel = Mage::getModel('promocampaign/promotion');
+                    //$promoModel->addData($data);
+                    $model->save();
+
+                    Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Promotion rule saved successfully'));
                 } else {
                     Mage::throwException('Form Input data is not valid');
                 }
