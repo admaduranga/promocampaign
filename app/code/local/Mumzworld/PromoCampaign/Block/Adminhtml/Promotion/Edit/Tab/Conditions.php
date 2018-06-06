@@ -54,7 +54,7 @@ class Mumzworld_PromoCampaign_Block_Adminhtml_Promotion_Edit_Tab_Conditions exte
             ->setNewChildUrl($this->getUrl('adminhtml/promo_quote/newConditionHtml/form/rule_conditions_fieldset'));
 
         $fieldset = $form->addFieldset('conditions_fieldset', array(
-            'legend'=>Mage::helper('promocampaign')->__('Cart attribute conditions (leave blank for any).')
+            'legend'=>Mage::helper('promocampaign')->__('Order attribute conditions (leave blank for any).')
         ))->setRenderer($renderer);
 
         $fieldset->addField('conditions', 'text', array(
