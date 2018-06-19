@@ -489,7 +489,7 @@
             </web>
         </default>
     </stores>
-    <crontab>
+        <crontab>
         <jobs>
             <core_clean_cache>
                 <schedule>

@@ -1,9 +1,27 @@
 <?xml version="1.0"?>
 <config>
+    <menu>
+        <promo>
+            <children>
+                <promocampaign translate="title" module="promocampaign">
+                    <title>Promo Campaigns</title>e
+                    <action>adminhtml/promotion/index</action>
+                    <depends><module>Mage_Rule</module></depends>
+                </promocampaign>
+            </children>
+        </promo>
+    </menu>
     <acl>
         <resources>
             <admin>
                 <children>
+                    <promo translate="title" module="promocampaign">
+                        <children>
+                            <promocampaign translate="title">
+                                <title>Promo Campaigns</title>
+                            </promocampaign>
+                        </children>
+                    </promo>
                     <system>
                         <children>
                             <config>
