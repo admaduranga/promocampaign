@@ -63,35 +63,7 @@ class Mumzworld_PromoCampaign_Block_Adminhtml_Promotion_Edit_Tab_Conditions exte
             'title' => Mage::helper('promocampaign')->__('Conditions'),
         ))->setRule($model)->setRenderer(Mage::getBlockSingleton('promocampaign/conditions'));
 
-
-        $fieldset = $form->addFieldset('simple_conditions_fieldset', array(
-            'legend'=>Mage::helper('promocampaign')->__('Time/Day conditions (leave blank for any).')
-        ));
-	
-	$fieldset->addField('condition_day', 'multiselect', array(
-            'name'      => 'condition_day[]',
-            'label'     => Mage::helper('promocampaign')->__('Order Placed Day'),
-            'title'     => Mage::helper('promocampaign')->__('Order Placed Day'),
-	    'values'	=> Mage::getSingleton('adminhtml/system_config_source_locale_weekdays')->toOptionArray(),
-	    'can_be_empty' => true,
-        ));
-	
-	$fieldset->addField('condition_time_type', 'select', array(
-            'name'      => 'condition_time_type',
-            'label'     => Mage::helper('promocampaign')->__('Order Placed (time)'),
-            'title'     => Mage::helper('promocampaign')->__('Order Placed (time)'),
-	    'options'	=> Mage::getSingleton('promocampaign/system_config_source_rule_condition_time')->getOptions()
-        ));
-
-        $fieldset->addField('condition_time_value', 'time', array(
-            'name'      => 'condition_time_value',
-            'label'     => Mage::helper('promocampaign')->__('Time'),
-            'title'     => Mage::helper('promocampaign')->__('Time'),
-	    'note'	=> Mage::helper('promocampaign')->__('24HH:MM:SS'),
-        ));
-	
-	$form->getElement('condition_day')->setSize(7);
-        $form->setValues($model->getData());
+        $form->setVal2ues($model->getData());
         $this->setForm($form);
 
         return parent::_prepareForm();

@@ -86,6 +86,9 @@ class Mumzworld_PromoCampaign_Model_Promotion extends Mage_Rule_Model_Abstract
      */
     public function validateOrder($order)
     {
+        return $this->getConditions()->validate($order);
+
+
         if ($order->getCustomerId() > 0) {
             return true;
         }
@@ -99,13 +102,21 @@ class Mumzworld_PromoCampaign_Model_Promotion extends Mage_Rule_Model_Abstract
     {
         // ** @todo parameterize this section, dymanic conditions
         /** @var Mage_Sales_Model_Entity_Order_Item_Collection $ordersCollection */
-        $ordersCollection = Mage::getResourceModel('sales/order_item_collection');
-        $ordersCollection->getSelect()->joinLeft(array('soh' => 'sales_flat_order_status_history'), "soh.parent_id = main_table.order_id");
-        $ordersCollection->getSelect()->joinLeft(array('so' => 'sales_flat_order'), "soh.parent_id = so.entity_id", array("increment_id" => "so.increment_id", "customer_email" => "so.customer_email", "customer_id" => "so.customer_id", 'customer_firstname' => "so.customer_firstname"));
-        $ordersCollection->addAttributeToFilter('so.created_at', array('from' => $this->getStartDate(), 'to' => $this->getEndDate()));
+//        $ordersCollection = Mage::getResourceModel('sales/order_item_collection');
+//        $ordersCollection->getSelect()->joinLeft(array('soh' => 'sales_flat_order_status_history'), "soh.parent_id = main_table.order_id");
+//        $ordersCollection->getSelect()->joinLeft(array('so' => 'sales_flat_order'), "soh.parent_id = so.entity_id", array("increment_id" => "so.increment_id", "customer_email" => "so.customer_email", "customer_id" => "so.customer_id", 'customer_firstname' => "so.customer_firstname"));
+//        $ordersCollection->addAttributeToFilter('so.created_at', array('from' => $this->getStartDate(), 'to' => $this->getEndDate()));
+//        $ordersCollection->addFieldToFilter('soh.status', ['eq' => 'complete']);
+//        $ordersCollection->getSelect()->group('main_table.order_id');
+//        $ordersCollection->getSelect()->having('SUM(main_table.base_row_total) >= 200');
+
+        $ordersCollection = Mage::getResourceModel('sales/order_collection');
+        $ordersCollection->getSelect()->joinLeft(array('soh' => 'sales_flat_order_status_history'), "soh.parent_id = main_table.entity_id", array('history_entity_id' => 'soh.entity_id'));
+        //$ordersCollection->getSelect()->joinLeft(array('so' => 'sales_flat_order'), "soh.paren    t_id = so.entity_id", array("increment_id" => "so.increment_id", "customer_email" => "so.customer_email", "customer_id" => "so.customer_id", 'customer_firstname' => "so.customer_firstname"));
+        $ordersCollection->addAttributeToFilter('main_table.created_at', array('from' => $this->getStartDate(), 'to' => $this->getEndDate()));
         $ordersCollection->addFieldToFilter('soh.status', ['eq' => 'complete']);
-        $ordersCollection->getSelect()->group('main_table.order_id');
-        $ordersCollection->getSelect()->having('SUM(main_table.base_row_total) >= 200');
+        //$ordersCollection->getSelect()->group('main_table.order_id');
+        //$ordersCollection->getSelect()->having('SUM(main_table.base_row_total) >= 200');
         return $ordersCollection;
     }
 

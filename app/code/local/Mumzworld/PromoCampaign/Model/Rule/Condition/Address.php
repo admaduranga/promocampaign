@@ -104,20 +104,6 @@ class Mumzworld_PromoCampaign_Model_Rule_Condition_Address extends Mage_Rule_Mod
      */
     public function validate(Varien_Object $object)
     {
-        $address = $object;
-        if (!$address instanceof Mage_Sales_Model_Quote_Address) {
-            if ($object->getQuote()->isVirtual()) {
-                $address = $object->getQuote()->getBillingAddress();
-            }
-            else {
-                $address = $object->getQuote()->getShippingAddress();
-            }
-        }
-
-        if ('payment_method' == $this->getAttribute() && ! $address->hasPaymentMethod()) {
-            $address->setPaymentMethod($object->getQuote()->getPayment()->getMethod());
-        }
-
-        return parent::validate($address);
+        return parent::validate($object);
     }
 }
