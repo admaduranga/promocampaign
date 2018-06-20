@@ -129,7 +129,8 @@ class Mumzworld_PromoCampaign_Adminhtml_PromotionController extends Mage_Adminht
                     $model->loadPost($data);
 
                     ////$promoModel = Mage::getModel('promocampaign/promotion');
-                    //$promoModel->addData($data);
+                    isset($data['is_active']) ? $mainData['status'] = $data['is_active'] : null;
+                    $model->addData($mainData);
                     $model->save();
 
                     Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Promotion rule saved successfully'));
@@ -208,6 +209,29 @@ class Mumzworld_PromoCampaign_Adminhtml_PromotionController extends Mage_Adminht
                 }
 
                 Mage::getModel('promocampaign/promotion')->massDisableRecords($ids);
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            }
+        }
+
+        $this->_redirect('*/*/', array('id' => $this->getRequest()->getParam('id')));
+        return;
+    }
+
+    /**
+     * massaction disable
+     */
+    public function massEnableAction()
+    {
+        if ($this->getRequest()->isPost()) {
+            try {
+                $ids = $this->getRequest()->getParam('entity_id');
+
+                if (!is_array($ids)) {
+                    Mage::throwException(Mage::helper('promocampaign')->__('Please select promotions to delete.'));
+                }
+
+                Mage::getModel('promocampaign/promotion')->massEnableRecords($ids);
             } catch (Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
             }

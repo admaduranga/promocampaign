@@ -45,7 +45,20 @@ class Mumzworld_PromoCampaign_Model_Promotion extends Mage_Rule_Model_Abstract
             $data = array(
                 'status' => static::CONST_STATUS_DISABLED
             );
-            $this->getResource()->massDisableRecords($ids, $data);
+            $this->getResource()->masChangeRecords($ids, $data);
+        }
+    }
+
+    /**
+     * @param $ids
+     */
+    public function massEnableRecords($ids)
+    {
+        if ($ids) {
+            $data = array(
+                'status' => static::CONST_STATUS_ENABLED
+            );
+            $this->getResource()->masChangeRecords($ids, $data);
         }
     }
 

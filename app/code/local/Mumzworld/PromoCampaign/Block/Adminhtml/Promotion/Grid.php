@@ -129,11 +129,11 @@ class Mumzworld_PromoCampaign_Block_Adminhtml_Promotion_Grid extends Mage_Adminh
             'confirm' => Mage::helper('promocampaign')->__('Are you sure?')
         ));
 
-        $this->getMassactionBlock()->addItem('enable_one', array(
-            'label' => Mage::helper('promocampaign')->__('Enable only this'),
-            'url' => $this->getUrl('*/*/massEnableThis'),
-            'confirm' => Mage::helper('promocampaign')->__('Are you sure?')
-        ));
+//        $this->getMassactionBlock()->addItem('enable_one', array(
+//            'label' => Mage::helper('promocampaign')->__('Enable only this'),
+//            'url' => $this->getUrl('*/*/massEnableThis'),
+//            'confirm' => Mage::helper('promocampaign')->__('Are you sure?')
+//        ));
 
         // ** Dispatching a custom event for later use
         Mage::dispatchEvent('promocampaign_grid_prepare_massaction', array('block' => $this));

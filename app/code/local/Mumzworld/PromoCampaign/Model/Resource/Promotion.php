@@ -20,12 +20,12 @@ class Mumzworld_PromoCampaign_Model_Resource_Promotion extends Mage_Core_Model_R
      * @param $ids
      * @param $data
      */
-    public function massDisableRecords($ids, $data)
+    public function masChangeRecords($ids, $data)
     {
         $adapter = $this->_getWriteAdapter();
 
         $condition = array(
-            'entity_id in (?) ' => implode(',', $ids),
+            'entity_id in (?) ' => $ids,
         );
 
         $adapter->update($this->getTable('promocampaign/promotion'), $data, $condition);

@@ -104,6 +104,23 @@ class Mumzworld_PromoCampaign_Model_Rule_Condition_Address extends Mage_Rule_Mod
      */
     public function validate(Varien_Object $object)
     {
+        if ($object instanceof Mage_Sales_Model_Order) {
+            $address = $object->getShippingAddress();
+
+            switch ($this->getAttribute()) {
+                case 'country_id':
+                case 'region_id':
+                    $object->setData($this->getAttribute(), $address->getData($this->getAttribute()));
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if ('payment_method' == $this->getAttribute() && ! $object->hasPaymentMethod()) {
+            $object->setPaymentMethod($object->getPayment()->getMethod());
+        }
+
         return parent::validate($object);
     }
 }
